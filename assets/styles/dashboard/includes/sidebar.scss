@@ -1,0 +1,46 @@
+#dashboard-sidebar {
+  padding: 10px 0px;
+  width: 80px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgb(236, 236, 236);
+  nav {
+    display: flex;
+    flex-direction: column;
+    a {
+      margin: 15px 0;
+      cursor: pointer;
+      position: relative;
+      span {
+        overflow: hidden;
+        background: $buttonBackground;
+        border-radius: 5px;
+        position: absolute;
+        top: 2px;
+        padding: 8px 0px;
+        width: 0px;
+        left: 120%;
+        color: white;
+        font-weight: 550;
+        font-size: 1.1rem;
+      }
+      &:hover {
+        span {
+          text-align: center;
+          padding: 8px 20px;
+          width: 130px;
+        }
+      }
+      i {
+        color: $veryLightTextColor;
+        font-size: 2.5rem;
+        &:hover {
+          color: $itemPriceColor;
+        }
+      }
+    }
+  }
+}

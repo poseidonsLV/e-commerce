@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html.twig' %} {% block title %}Log in!{% endblock %} {%
+block header %} {% endblock %} {% block body %}
+<section class="auth-container">
+  <form class="auth-form" method="post">
+    <h1 class="auth-title">Sign in to admin dashboard</h1>
+    <label for="inputUsername">Username</label>
+    <input
+      type="text"
+      name="username"
+      id="inputUsername"
+      class="auth-input"
+      autocomplete="username"
+      required
+      autofocus
+    />
+    <label for="inputPassword">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="inputPassword"
+      class="auth-input"
+      autocomplete="current-password"
+      required
+    />
+
+    <input
+      type="hidden"
+      name="_csrf_token"
+      value="{{ csrf_token('authenticate') }}"
+    />
+
+    <button class="auth-button" type="submit">Sign in</button>
+  </form>
+</section>
+{% endblock %}

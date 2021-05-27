@@ -1,0 +1,55 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {% if trendingProduct|length > 0 %} {% for product in trendingProduct %}
+    <div class="swiper-slide">
+      <section id="trending">
+        <div class="trending-left">
+          <div class="trending-left__product-name">
+            <p class="trending-left__product-name__category">
+              {{ product.category }}
+            </p>
+            <p>{{ product.name }}</p>
+          </div>
+          <div class="trending-left__product-title">
+            {{ product.title }}
+          </div>
+          <div class="trending-left__product-description">
+            {{ product.description }}
+          </div>
+          <div class="trending-left__product-links">
+            <a
+              href="{{ path('product_addToCart', { productID: product.id }) }}"
+            >
+              <button class="trending-left__product-links__button-buy">
+                Buy Now for ${{ product.price }}
+              </button>
+            </a>
+            <a href="{{ path('single_product', { productID: product.id }) }}">
+              <button class="trending-left__product-links__button-more">
+                Learn More
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="trending-right">
+          <img src="{{ product.image }}" />
+        </div>
+      </section>
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+<script>
+  const swiper = new Swiper(".swiper-container", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+    speed: 1500,
+    allowTouchMove: false,
+    autoplay: {
+      delay: 6000,
+    },
+  });
+</script>

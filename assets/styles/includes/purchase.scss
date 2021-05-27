@@ -1,0 +1,41 @@
+#purchase-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(121, 121, 121, 0.7);
+  .purchase-modal__body {
+    background: rgb(109, 109, 109);
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    .options {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      button {
+        margin-left: 10px;
+        border: 1px solid $buttonBorder;
+        background: $buttonBackground;
+        color: white;
+        font-weight: 550;
+        text-transform: uppercase;
+        padding: 8px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        i {
+          margin-right: 10px;
+          font-size: 1.1rem;
+        }
+        &:hover {
+          background: $buttonBorder;
+        }
+      }
+    }
+  }
+}

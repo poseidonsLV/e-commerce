@@ -1,0 +1,46 @@
+{% extends 'layouts/dashboard/dashboard.html.twig' %} {% block body %}
+
+<section id="product-add">
+  <form method="POST">
+    <input
+      required
+      type="text"
+      name="category"
+      placeholder="Enter product category..."
+    />
+    <input
+      required
+      type="text"
+      name="name"
+      placeholder="Enter product name..."
+    />
+    <input
+      required
+      type="text"
+      name="title"
+      placeholder="Enter product title..."
+    />
+    <textarea
+      type="text"
+      name="description"
+      placeholder="Enter product description..."
+      rows="5"
+      maxlength="255"
+    ></textarea>
+    <input
+      required
+      type="number"
+      name="price"
+      placeholder="Enter product price..."
+    />
+    <input
+      required
+      type="text"
+      name="image"
+      placeholder="Enter image link..."
+    />
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+{% endblock %}

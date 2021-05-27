@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html.twig' %} {% block body %} {% if product|length > 0
+%}
+<a href="{{ path('home') }}">
+  <button class="all-products">See all available products</button>
+</a>
+<section id="single-product">
+  <div class="image-container">
+    <img src="{{ product.image }}" />
+  </div>
+
+  <div class="product-info">
+    <p class="product-category">{{ product.category }}</p>
+    <p class="product-name">{{ product.name }}</p>
+    <strong class="product-title">{{ product.title }}</strong>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">$ {{ product.price }}</p>
+    <a href='{{ path('product_addToCart', {productID: product.id}) }}' class="product-buy">
+      <i class="fas fa-shopping-cart"></i>Add to cart
+    </a>
+  </div>
+</section>
+{% endif %} 
+<div class="title-container">
+  <h1>Available Products</h1>
+  <small>Catch products from best sellers while you can</small>
+</div>{% include 'layouts/products.html.twig' %} {% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'layouts/base.html.twig' %} {% block title %} Shopping Cart {%
+endblock %} {% block body %}
+
+<section id="cart">
+  <header class="cart__main-header">
+    <h2>Shopping Cart</h2>
+    <a href="{{ path('home') }}">
+      <button>
+        Continue Shopping
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </a>
+  </header>
+
+  <div class="cart-top">
+
+    <header class="cart-top__header">
+      <p class="cart-top__header__products">Products</p>
+      <p class="cart-top__header__pricePiece">Price (pcs.)</p>
+      <p class="cart-top__header__count">Count</p>
+      <p class="cart-top__header__price">Price</p>
+    </header>
+
+    <div class='cart-top__products'>
+      {% if products|length <= 0 %}
+      <div style='display: flex;align-items: center;' class='cart-top__products__null'>
+        <h1>Nav produktu</h1>
+        </a>
+    </div>
+      {% endif %}
+
+      {% for product in products %}
+        <div class="cart-top__products__product">
+          <div class='cart-top__products__product__left'>
+
+            <div class="cart-top__products__product__left__image">
+              <img src="{{ product.image }}" alt="Product Image" />
+            </div>
+            
+            <div class='cart-top__products__product__left__title-container'>
+              <p>
+                {{ product.name }}
+              </p>
+            </div>
+            
+          </div>
+            
+            <div class="cart-top__products__product__price-container">
+              <p>{{ product.price }} $</p>
+            </div>
+            
+            <div class="cart-top__products__product__count-container">
+              <p>
+                <a href="{{ path('decrease_count', {productID: product.id}) }}"><i class="far fa-minus-square"></i></a>
+                <span>{{ product.count }}</span>
+                <a href='{{ path("increase_count", {productID: product.id}) }}'>
+                  <i class="far fa-plus-square"></i>
+                </a>
+              </p>
+              <a href="{{ path('delete_cart-product', {productID: product.id}) }}"><i class="far fa-times-circle"></i>Delete</a>
+            </div>
+            
+            <div class="cart-top__products__product__totalPrice-container">
+            <strong>{{ product.totalPrice }} $</strong>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  {% if products|length > 0 %}
+  <div class="cart-bottom info">
+    
+    <div class="cart-bottom__shipping">
+      <header class="cart-bottom__shipping__header">
+        <p>Shipping Options</p>
+      </header>
+
+      <div class="cart-bottom__shipping__option">
+        <i class="fas fa-truck"></i>
+        <div class="cart-bottom__shipping__option__info">
+          <strong class="title">Shipping cost 5.99 $</strong>
+          <p class="description">
+            Pasūtījums tiks piegādāts 9 darba dienu laikā. Covid-19 dēļ piegāde
+            var kavēties.
+          </p>
+        </div>
+      </div>
+
+      <div class="cart-bottom__shipping__option">
+        <i class="fas fa-envelope"></i>
+        <div class="cart-bottom__shipping__option__info">
+          <strong class="title">Saņemt BEZ MAKSAS</strong>
+          <p class="description">
+            Pasūtījums būs gatavs saņemšanai 8 darba dienu laikā.
+          </p>
+        </div>
+      </div>
+
+      <div class="cart-bottom__shipping__option">
+        <i class="fas fa-dolly"></i>
+        <div class="cart-bottom__shipping__option__info">
+          <strong class="title">Piegāde uz izņemšanas punktu par 0,99–1,99 €</strong>
+          <p class="description">
+            Piegādāsim uz izņemšanas punktu 9 darba dienā(s). Covid-19 dēļ piegāde var kavēties.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-bottom__payment">
+
+      <div class="cart-bottom__payment__top">
+        <h3>Kopā apmaksai: <span>{{ totalPrice }} $</span></h3>
+        <a href="{{ path('home') }}">
+          <i class="fas fa-long-arrow-alt-left"></i>
+          Pievienot Citas Preces</a>
+      </div>
+      <div class="cart-bottom__payment__bottom">
+        <button id='open-purchase__modal'>
+          Veikt apmaksu <i class="fas fa-long-arrow-alt-right"></i>
+        </button>
+        <p>
+          Nākamajā solī Jūs varēsiet izvēlēties preces saņemšanas vietu vai sev
+          ērtāko piegādes veidu.
+        </p>
+      </div>
+
+    </div>
+  
+  </div>
+  
+  {% endif %}
+
+</section>
+{% include 'cart/purchase.html.twig' %}
+{% endblock %}

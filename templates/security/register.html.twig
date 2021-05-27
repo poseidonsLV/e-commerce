@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html.twig' %} {% block title %} Register {% endblock %}
+{% block header %}{% endblock %} {% block body %}
+<section class="auth-container">
+  <form class="auth-form" method="POST">
+    <h1 class="auth-title">Register</h1>
+    <div class="auth-errors">
+      <ul>
+        {% for error in app.session.flashbag.get('error') %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <label for="inputUsername">Username</label>
+    <input
+      id="inputUsername"
+      class="auth-input"
+      type="text"
+      name="username"
+      placeholder="Enter username..."
+    />
+    <label for="inputPassword">Password</label>
+    <input
+      id="inputPassword"
+      class="auth-input"
+      type="password"
+      name="password"
+      placeholder="Enter pasword..."
+    />
+    <label for="inputPassword">Repeat Password</label>
+    <input
+      id="inputPassword"
+      class="auth-input"
+      type="password"
+      name="repeat-password"
+      placeholder="Enter pasword..."
+    />
+    <div class="auth-links">
+      <a href="{{ path('app_login') }}">Already have account ?</a>
+    </div>
+    <button class="auth-button" type="submit">Submit</button>
+  </form>
+</section>
+{% endblock %}

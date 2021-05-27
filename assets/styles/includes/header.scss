@@ -1,0 +1,70 @@
+@import "../config/variables.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0px 2px 8px 0.1px rgb(182, 182, 182);
+  .logo-container {
+    display: flex;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .header-nav__item {
+    margin: 0 10px;
+    text-decoration: none;
+    color: $lightTextColor;
+    font-size: 1.5rem;
+    button {
+      padding: 10px 20px;
+      background: $buttonBackground;
+      border: 1px solid $buttonBorder;
+      color: white;
+      font-weight: 550;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        background: $buttonBorder;
+      }
+    }
+    &:hover {
+      color: $lightTextColorHover;
+    }
+  }
+  .header-nav__cart {
+    cursor: pointer;
+    transform: scale(1.03);
+    i {
+      font-size: 1.5rem;
+      color: $veryLightTextColor;
+      position: relative;
+      &:hover {
+        color: $veryLightTextColorHover;
+        span {
+          background: $buttonBackground;
+          color: white;
+        }
+      }
+      span {
+        position: absolute;
+        z-index: 1;
+        font-weight: 600;
+        top: -10px;
+        right: -20px;
+        border: 1px solid $buttonBorder;
+        color: $itemPriceColor;
+        font-size: 1.1rem;
+        height: 110%;
+        width: 110%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+    }
+  }
+}

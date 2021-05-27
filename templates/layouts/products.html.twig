@@ -1,0 +1,36 @@
+<section id="products-container">
+  <div class="products">
+    {% for product in allProducts %}
+
+    <div class="product">
+      <div class="image-container">
+        <img src="{{ product.image }}" />
+      </div>
+
+      <div class="category">
+        <p>{{ product.category }}</p>
+      </div>
+
+      <div class="name">
+        <p>{{ product.name }}</p>
+      </div>
+
+      <div class="price">
+        <p>${{ product.price }}</p>
+      </div>
+      <div class="addToCart">
+        <a href="{{ path('product_addToCart', { productID: product.id }) }}">
+          <button><i class="fas fa-shopping-cart"></i> Add to cart</button>
+        </a>
+      </div>
+
+      <div class="quickView">
+        <a href="{{ path('single_product', { productID: product.id }) }}"
+          ><i class="far fa-eye"></i> Quick view</a
+        >
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</section>

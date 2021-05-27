@@ -1,0 +1,71 @@
+@import "../config/animations.scss";
+#trending {
+  padding: 50px 0px;
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+
+  .trending-left {
+    width: 100%;
+    &__product-name {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: rgb(0, 132, 255);
+      font-weight: 550;
+      &__category {
+        margin-bottom: 5px;
+        color: $veryLightTextColor;
+        font-size: 0.8rem;
+      }
+    }
+    &__product-title {
+      font-size: 3vw;
+      line-height: 1em;
+      font-weight: 550;
+      color: $primaryTextColor;
+    }
+    &__product-description {
+      margin: 25px 0;
+      font-size: 1.1rem;
+      font-weight: 550;
+      letter-spacing: 0.9px;
+      line-height: 1.5rem;
+      color: $veryLightTextColor;
+    }
+
+    &__product-links {
+      button {
+        border: 1px solid $buttonBorder;
+        padding: 8px 12px;
+        font-weight: 550;
+        border-radius: 5px;
+        margin: 0 5px;
+        cursor: pointer;
+        &:hover {
+          background: $buttonBackground;
+          color: white;
+        }
+      }
+      .trending-left__product-links__button-buy {
+        background: $buttonBackground;
+        color: white;
+      }
+      .trending-left__product-links__button-more {
+        color: $buttonBorder;
+      }
+    }
+  }
+
+  .trending-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 500px;
+      width: 100%;
+      animation: float 7s infinite;
+    }
+  }
+}

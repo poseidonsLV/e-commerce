@@ -1,0 +1,43 @@
+#product-add {
+  display: grid;
+  place-items: center;
+  width: 100%;
+
+  form {
+    display: grid;
+    place-items: center;
+    max-width: 600px;
+    width: 100%;
+    input,
+    textarea {
+      margin: 8px 0;
+      padding: 10px;
+      color: $veryLightTextColor;
+      resize: vertical;
+      max-height: 400px;
+      width: 100%;
+      border: 1px solid $veryLightTextColor;
+      outline: none;
+      &:focus {
+        font-weight: 550;
+        transform: scale(1.03);
+        border-radius: 5px;
+        border: 1px solid $buttonBorder;
+      }
+    }
+    button {
+      background: $buttonBackground;
+      border: 1px solid $buttonBorder;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 5px;
+      padding: 8px 10px;
+      margin-top: 15px;
+      &:hover {
+        background: $buttonBorder;
+      }
+    }
+  }
+}

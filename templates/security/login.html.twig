@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html.twig' %} {% block title %}Log in!{% endblock %} {%
+block header %} {% endblock %} {% block body %}
+<section class="auth-container">
+  <form class="auth-form" method="post">
+    {% if error %}
+    <div class="alert alert-danger">
+      {{ error.messageKey|trans(error.messageData, 'security') }}
+    </div>
+    {% endif %}
+    <h1 class="auth-title">Sign in</h1>
+    <label for="inputUsername">Username</label>
+    <input
+      type="text"
+      value="{{ last_username }}"
+      name="username"
+      id="inputUsername"
+      class="auth-input"
+      autocomplete="username"
+      required
+      autofocus
+    />
+    <label for="inputPassword">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="inputPassword"
+      class="auth-input"
+      autocomplete="current-password"
+      required
+    />
+
+    <input
+      type="hidden"
+      name="_csrf_token"
+      value="{{ csrf_token('authenticate') }}"
+    />
+    <div class="auth-links">
+      <label style="margin-right: 5px">Haven't created account ?</label>
+      <a href="{{ path('app_register') }}">Register</a>
+    </div>
+    <button class="auth-button" type="submit">Sign in</button>
+  </form>
+</section>
+{% endblock %}

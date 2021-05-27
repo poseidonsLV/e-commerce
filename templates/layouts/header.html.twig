@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="logo-container">
+    <h2>LOGO</h2>
+  </div>
+  <nav class="header-nav__links">
+    <a href="{{ path('home') }}" class="header-nav__item">Home</a>
+    <a href="#" class="header-nav__item">About</a>
+    <a href="#" class="header-nav__item">Contacts</a>
+    <a href="{{ path('app_logout') }}" class="header-nav__item">Logout</a>
+    {% if app.user.admin > 0 %}
+    <a href="{{ path('admin_login') }}" class="header-nav__item"
+      ><button>Dashboard</button></a
+    >
+    {% endif %}
+  </nav>
+  <div class="header-nav__cart">
+    {% if cartCount is defined %}
+    <a href="{{ path('user_cart') }}">
+      <i class="fas fa-shopping-cart">
+        <span>{{ cartCount }}</span>
+      </i>
+    </a>
+    {% endif %}
+  </div>
+</header>

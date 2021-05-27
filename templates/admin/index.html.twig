@@ -1,0 +1,199 @@
+{% extends 'layouts/dashboard/dashboard.html.twig' %} {% block body %}
+
+<section id="dashboard">
+  <div class="product-overview" id="row-1">
+    <div id="top-selling__product" class="product-section">
+      <header>
+        <p>Top Selling Product</p>
+      </header>
+      <a
+        href="{{
+          path('single_product', { productID: mostSoldProductInfo[0][0].id })
+        }}"
+      >
+        <h3 style="margin-top: 10px">{{ mostSoldProductInfo[0][0].name }}</h3>
+      </a>
+      <div class="product-info">
+        <img
+          src="{{ mostSoldProductInfo[0][0].image }}"
+          alt="best selling product image"
+        />
+        <h3>$ {{ mostSoldProductInfo["totalRevenue"] }}</h3>
+      </div>
+    </div>
+
+{#    <div id="most-viewed__product" class="product-section">#}
+{#      <header>#}
+{#        <p>Most Viewed Product</p>#}
+{#      </header>#}
+{#      <div class="product-info">#}
+{#        <img#}
+{#          src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"#}
+{#          alt="best selling product image"#}
+{#        />#}
+{#        <h3>$ 12.500</h3>#}
+{#      </div>#}
+{#    </div>#}
+
+    <div id="most-profitable__sections" class="product-section">
+      <header>
+        <p>Most Profitable Sections</p>
+      </header>
+      <ol>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="product-overview" id="row-2">
+    <div id="most-profitable__categories" class="product-section">
+      <header>
+        <p>Most Profitable Categories</p>
+      </header>
+      <ol>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+        <li>
+          <div class="section-info">
+            <p>Electronics</p>
+            <p>$ 50.2K</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div id="top-selling__products" class="product-section">
+      <header>
+        <p>Top 5 Selling Products</p>
+      </header>
+      {% for product in topSellingProducts %}
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img src="{{ product.image }}" alt="best selling product image" />
+          <a href="{{ path('single_product', { productID: product.id }) }}">
+            <p style="margin-left: 15px">{{ product.name }}</p>
+          </a>
+        </div>
+        <p>$ {{ product.price }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="product-overview" id="row-3">
+    <div id="most-viewed__products" class="product-section">
+      <header>
+        <p>Top Selling Products</p>
+      </header>
+
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"
+            alt="best selling product image"
+          />
+          <p style="margin-left: 15px">Electronics</p>
+        </div>
+        <p>$ 50.2K</p>
+      </div>
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"
+            alt="best selling product image"
+          />
+          <p style="margin-left: 15px">Electronics</p>
+        </div>
+        <p>$ 50.2K</p>
+      </div>
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"
+            alt="best selling product image"
+          />
+          <p style="margin-left: 15px">Electronics</p>
+        </div>
+        <p>$ 50.2K</p>
+      </div>
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"
+            alt="best selling product image"
+          />
+          <p style="margin-left: 15px">Electronics</p>
+        </div>
+        <p>$ 50.2K</p>
+      </div>
+      <div class="section-info">
+        <div style="display: flex; align-items: center">
+          <img
+            src="https://cdn.taggdigital.com/webroot/img/756191611526140.png"
+            alt="best selling product image"
+          />
+          <p style="margin-left: 15px">Electronics</p>
+        </div>
+        <p>$ 50.2K</p>
+      </div>
+    </div>
+
+    <div id="general-statistics" class="product-section">
+      <header>
+        <p>General Statistics</p>
+      </header>
+
+      <div class="section-info">
+        <div class="items-onSale">
+          <p class="count">{{ allProducts }}</p>
+          <p class="text">Items On Sale</p>
+        </div>
+        <div class="items-onSale">
+          <p class="count">{{ totalProductsSold }}</p>
+          <p class="text">Total products sold</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layouts/dashboard/dashboard.html.twig' %} {% block body %}
+
+<section id="products">
+  <header>
+    <nav>
+      <a href="{{ path('dashboard_product-add') }}">
+        <button>Add Product</button>
+      </a>
+    </nav>
+  </header>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Trending</th>
+      <th>Options</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.trending|length > 0 ? 'Trending' : 'Not Trending' }}</td>
+      <td>
+        <a href="{{ path('dashboard_product-delete', { productID: product.id }) }}">
+          <button>Delete</button>
+        </a>
+        <a href="{{ path('dashboard_product-edit', { productID: product.id }) }}">
+          <button>Edit</button>
+        </a>
+        <a href="{{ path('single_product', { productID: product.id }) }}">
+          <button>Preview</button>
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+
+{% endblock %}

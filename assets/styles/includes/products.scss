@@ -1,0 +1,102 @@
+@import "../config/variables.scss";
+
+.title-container {
+  margin: 20px;
+  text-align: center;
+  h1 {
+    color: $primaryTextColor;
+    font-size: 3vw;
+  }
+  small {
+    color: $veryLightTextColor;
+  }
+}
+#products-container {
+  margin-bottom: 50px;
+  .products {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    .product {
+      transition: all 0.3s;
+      border-radius: 8px;
+      padding: 5px;
+      height: 100%;
+      width: 300px;
+      &:hover {
+        transform: scale(1.03);
+        .addToCart {
+          opacity: 1;
+          height: 35px;
+        }
+      }
+      .image-container img {
+        object-fit: fill;
+        height: 300px;
+        width: 100%;
+      }
+      .category p {
+        margin-top: 8px;
+        color: $veryLightTextColor;
+        font-size: 0.8rem;
+      }
+      .name p {
+        color: $primaryTextColor;
+        font-size: 1.3rem;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+      .price p {
+        color: $itemPriceColor;
+        font-weight: bolder;
+        font-size: 1.1rem;
+      }
+      .addToCart {
+        transition: all 0.7s;
+        height: 0px;
+        opacity: 0;
+        button {
+          margin: 15px 0;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 0px;
+          width: 100%;
+          color: white;
+          font-weight: 500;
+          background: $buttonBackground;
+          border: 1px solid $buttonBorder;
+          cursor: pointer;
+          &:hover {
+            background: $buttonBorder;
+          }
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+      .quickView {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+        a {
+          text-decoration: none;
+          i {
+            margin-right: 15px;
+          }
+          display: flex;
+          align-items: center;
+          color: $veryLightTextColor;
+          font-size: 0.9rem;
+          cursor: pointer;
+          &:hover {
+            color: $veryLightTextColorHover;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html.twig' %} {% block title %}Home Page!{% endblock %}
+{% block body %} {% include 'layouts/trending.html.twig' %}
+
+<section id="benefits">
+  <div class="benefit shipping">
+    <i class="fas fa-truck-moving benefit-icon"></i>
+    <div class="benefit__text">
+      <strong class="benefit__title">Free Shipping</strong>
+      <p class="benefit__description">Free delivery for all orders</p>
+    </div>
+  </div>
+
+  <div class="benefit money">
+    <i class="fas fa-money-bill-wave-alt benefit-icon"></i>
+    <div class="benefit__text">
+      <strong class="benefit__title">Money Quarantee</strong>
+      <p class="benefit__description">30 days money back</p>
+    </div>
+  </div>
+
+  <div class="benefit support">
+    <i class="fas fa-question benefit-icon"></i>
+    <div class="benefit__text">
+      <strong class="benefit__title">24/7 Support</strong>
+      <p class="benefit__description">Friendly 24/7 support</p>
+    </div>
+  </div>
+
+  <div class="benefit security">
+    <i class="far fa-credit-card benefit-icon"></i>
+    <div class="benefit__text">
+      <strong class="benefit__title">Secure Payments</strong>
+      <p class="benefit__description">All cards are privated</p>
+    </div>
+  </div>
+</section>
+<div class="title-container">
+  <h1>Available Products</h1>
+  <small>Catch products from best sellers while you can</small>
+</div>
+{% include 'layouts/products.html.twig' %} {% endblock %}

@@ -1,0 +1,39 @@
+#products {
+  width: 100%;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    nav a button {
+      padding: 8px 15px;
+    }
+  }
+  button {
+    border: 1px solid $buttonBorder;
+    background: $buttonBackground;
+    color: white;
+    font-weight: 550;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background: $buttonBorder;
+    }
+  }
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90vw;
+  margin: 50px auto;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
